@@ -10,7 +10,7 @@
 
 ## Time Complexity
 
-Time Complexity is when we analyse the performace of an algorithm according to it's input, below is an image of the types of curves we will take a look at.
+Time Complexity is when we analyse the **time** it takes to run an algorithm according to it's input, below is an image of the types of curves we will take a look at.
 
 The `O(2ⁿ)` algorithm is the least efficient.
 
