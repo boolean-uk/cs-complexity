@@ -45,3 +45,17 @@ Command to run the sample code:
 Command to run the sample code:
 
 `node time-complexity/04-O(log n)-logarithmic/index.js`
+
+### Exercise
+
+Each folder has a `snippet.js` file.
+
+Your task is to find two code snippets that matches the time complexity of that section.
+
+Attempt to find a code snippets in this order:
+
+- Come up with a code snippet using your own coding skills
+- Find a code snippet from a previous exercise or project you've worked on
+- Find a code snippet from the internet
+
+When you have found two code snippets for each section. Commit and Push.
