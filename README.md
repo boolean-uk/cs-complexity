@@ -1,61 +1,96 @@
 # Big O Notation
 
-## Key Points
+[Big O notation](https://en.wikipedia.org/wiki/Big_O_notation) is used to classify algorithms according to how their run time or space requirements grow as the input size grows.
 
-- We use Big O to describe the performance of an algorithm.
-- We use Big O to decide if the algorithm will scale.
-- What does scale mean? If an algorithm works with an input that has one hundred pieces of data... how will it perform with an input that has one million pieces of data.
-- What do algorithm mean? In the following examples you will see various functions that perform actions, these are algorithms.
-- When we think about Big O notation we want to think about the performance of the algorithm when the size of the input increases.
+## Learning Objectives
+
+- Understand how to use Big O to describe the performance of an algorithm
+- Understand how to use Big O to describe both time and space complexity
+- Use Big O notation to understand how an algorithm scales - if an algorithm works with an input that has one hundred pieces of data, how will it perform with an input that has one million pieces of data?
+- Use Big O notation to describe the time and space complexity of different sort algorithms
+
+## Big O
+
+Big O notation is used to classify algorithms (or programs) according to how their run _time_ or _space_ requirements grow as a function of their _input_. Hence, Big O characterises algorithms according to their growth rates - different functions with the same growth rate may be represented using the same O notation (the letter O is used because the growth rate of a function is also referred to as the order of the function).
+
+Figure 1, below, shows some commonly used Big O classifications:
+
+![Time Complexity Curves](./assets/bigO.png)
+
+_Figure 1: Big O, where O(1) is the most efficient, and O(2^n) the least_ 
+
+- O(1) - the growth is constant, no matter the input
+- O(log n) - logarithmic growth
+- O(n) - linear growth
+- O(n^2) - quadratic growth
+- O(2^n) - exponential growth
+
+## Space Complexity
+
+The [space complexity](https://en.wikipedia.org/wiki/Space_complexity) of an algorithm is the amount of memory required by the algorithm.
+
+- O(1) - the algorithm uses a fixed (small) amount of space, irrespective of the input. For example:
+
+```js
+const tripler = (a, b, c) => {
+   const x = a * b * c;
+   return x;
+}
+```
+
+No matter what numbers are given to `tripler`, it will _always_ use the same amount of space because [javascript numbers are always 64-bit floating point](https://www.w3schools.com/js/js_numbers.asp). Hence, `tripler` has space complexity of O(1).
+
+- O(log n), O(n), O(n^2) O(2^n) - these indicate that the algorithm needs additional space based on the length of the input. For example:
+
+```js
+const copier = (q) {
+    const copiedQ = queue();
+    let front = q.front;
+    while (front) {
+        copiedQ.enQueue(front.data);
+        front = front.next;
+    }
+}
+```
+
+The function `copier` creates a copy of the `queue` _q_. Hence, it takes O(n) space as you create _n_ additional queued nodes (where _n_ describes the length of the _q_, which can vary).
 
 ## Time Complexity
 
-Time Complexity is when we analyse the **time** it takes to run an algorithm according to it's input, below is an image of the types of curves we will take a look at.
+The [time complexity](https://en.wikipedia.org/wiki/Time_complexity) of an algorithm is the amount of time it takes to run an algorithm.
 
-The `O(2ⁿ)` algorithm is the least efficient.
+- O(1) - the algorithm uses a fixed (small) amount of time, irrespective of the input. For example:
 
-The `O(1)` algorithm is the most efficient.
+```js
+const logger = (input) => {
+    console.log(input)
+}
+```
 
-![Time Complexity Curves](./assets/time-complexity-curves.png)
+The function `logger` will always run a single `console.log`, no mater what the input. Hence, it has _time_ complexity of O(1).
 
-### Table of Content
+- O(log n), O(n), O(n^2) O(2^n) - these indicate that the algorithm needs additional time based on the length of the input. For example:
 
-Each link will direct you to a explanation of each type of algorithm. Each explanation is accompanied by an `index.js` file with some code that can be run.
+```js
+const sum = (stack) => {
+    let total = 0;
+    let top = stack.pop();
+    while (top) {
+        total += top.data;
+        top = stack.pop();
+    }
+}
+```
 
-1. [O(1)](<./time-complexity/01-O(1)-constant/constant.md>)
+The function `sum` sums all the numbers on the `stack`. Hence, it takes O(n) time as you process _n_ additional stacked nodes (where _n_ describes the length of the `stack`, which can vary).
 
-Command to run the sample code:
+## Exercise
 
-`node time-complexity/01-O(1)-constant/index.js`
-
-2. [O(n)](<./time-complexity/02-O(n)-linear/linear.md>)
-
-Command to run the sample code:
-
-`node time-complexity/02-O(n)-linear/index.js`
-
-3. [O(n²)](<./time-complexity/03-O(n²)-quadratic/quadratic.md>)
-
-Command to run the sample code:
-
-`node time-complexity/03-O(n²)-quadratic/index.js`
-
-4. [O(log n)](<./time-complexity/04-O(log n)-logarithmic/logarithmic.md>)
-
-Command to run the sample code:
-
-`node time-complexity/04-O(log n)-logarithmic/index.js`
-
-### Exercise
-
-Each folder has a `snippet.js` file.
-
-Your task is to find two code snippets that matches the time complexity of that section.
-
-Attempt to find a code snippets in this order:
-
-- Come up with a code snippet using your own coding skills
-- Find a code snippet from a previous exercise or project you've worked on
-- Find a code snippet from the internet
-
-When you have found two code snippets for each section. Commit and Push.
+1. Fork this repository and clone the fork to your machine.
+2. Run `npm ci` to install project dependencies
+3. Implement each of the empty _sort_ functions inside the [src](./src) directory
+    - Add a commment to each function implementation that describes:
+        1. Conceptually, how the sort algorithm works. You _may_ wish to write this _first_, then try and implement your conceptual understanding
+        2. The time and space complexity in Big O notation. Why does the function have that complexity?
+4. Run `npx jasmine` to test your code. 
+5. Add timing results for each of your sorting algorithms into the file [sortResults.md](docs/sortResults.md). Which ran fastest? Given your understanding of Big O notation in Step 3., above, were those results what you expected? Add that summary to the file, too.
