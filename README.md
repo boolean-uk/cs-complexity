@@ -4,14 +4,15 @@
 
 ## Learning Objectives
 
-- Understand how to use Big O to describe the performance of an algorithm
-- Understand how to use Big O to describe both time and space complexity
-- Use Big O notation to understand how an algorithm scales - if an algorithm works with an input that has one hundred pieces of data, how will it perform with an input that has one million pieces of data?
+- Understand how to use Big O to describe both the time and space complexity of an algorithm
+- understand how Big O notation describes how an algorithm scales, e.g. if an algorithm works with an input that has one hundred pieces of data, how will it perform with an input that has one million pieces of data?
 - Use Big O notation to describe the time and space complexity of different sort algorithms
 
 ## Big O
 
-Big O notation is used to classify algorithms (or programs) according to how their run _time_ or _space_ requirements grow as a function of their _input_. Hence, Big O characterises algorithms according to their growth rates - different functions with the same growth rate may be represented using the same O notation (the letter O is used because the growth rate of a function is also referred to as the order of the function).
+Big O notation is used to classify algorithms (or functions or algorithms) according to how their _time_ or _space_ requirements grow dependent on their _input_.
+
+Big O characterises functions according to their growth rates. Suppose we have functions _x_ and _y_ that perform completely different tasks -  if they have the same growth rate (in respect to time and space), then they will be represented using the same Big O notation (the letter O is used because the growth rate of a function is also referred to as the order of the function).
 
 Figure 1, below, shows some commonly used Big O classifications:
 
@@ -27,7 +28,7 @@ _Figure 1: Big O, where O(1) is the most efficient, and O(2^n) the least_
 
 ## Space Complexity
 
-The [space complexity](https://en.wikipedia.org/wiki/Space_complexity) of an algorithm is the amount of memory required by the algorithm.
+The [space complexity](https://en.wikipedia.org/wiki/Space_complexity) of an algorithm is the amount of memory it requires.
 
 - O(1) - the algorithm uses a fixed (small) amount of space, irrespective of the input. For example:
 
@@ -53,11 +54,11 @@ const copier = (q) {
 }
 ```
 
-The function `copier` creates a copy of the `queue` _q_. Hence, it takes O(n) space as you create _n_ additional queued nodes (where _n_ describes the length of the _q_, which can vary).
+The function `copier` creates a copy of the `queue` _q_. Hence, it takes O(n) space as you create _n_ additional queued nodes (where _n_ describes the length of _q_, which can vary).
 
 ## Time Complexity
 
-The [time complexity](https://en.wikipedia.org/wiki/Time_complexity) of an algorithm is the amount of time it takes to run an algorithm.
+The [time complexity](https://en.wikipedia.org/wiki/Time_complexity) of an algorithm is the amount of time it takes to run.
 
 - O(1) - the algorithm uses a fixed (small) amount of time, irrespective of the input. For example:
 
@@ -93,4 +94,4 @@ The function `sum` sums all the numbers on the `stack`. Hence, it takes O(n) tim
         1. Conceptually, how the sort algorithm works. You _may_ wish to write this _first_, then try and implement your conceptual understanding
         2. The time and space complexity in Big O notation. Why does the function have that complexity?
 4. Run `npx jasmine` to test your code. 
-5. Add timing results for each of your sorting algorithms into the file [sortResults.md](docs/sortResults.md). Which ran fastest? Given your understanding of Big O notation in Step 3., above, were those results what you expected? Add that summary to the file, too.
+5. Add timing results for each of your sorting algorithms into the file [sortResults.md](docs/sortResults.md). Which ran fastest? And slowest? Given your understanding of Big O complexity of the different sorting algorithms, described in Step 3., above, were those results what you expected? Add that summary to the file, too.
