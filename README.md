@@ -5,7 +5,8 @@
 ## Learning Objectives
 
 - Understand how to use Big O to describe both the time and space complexity of an algorithm
-- understand how Big O notation describes how an algorithm scales, e.g. if an algorithm works with an input that has one hundred pieces of data, how will it perform with an input that has one million pieces of data?
+- Understand how Big O notation describes how an algorithm scales, e.g. if an algorithm works with an input that has one hundred pieces of data, how will it perform with an input that has one million pieces of data?
+- Implement different _sort_ algorithms
 - Use Big O notation to describe the time and space complexity of different sort algorithms
 
 ## Big O
