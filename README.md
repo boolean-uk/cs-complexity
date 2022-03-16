@@ -93,5 +93,5 @@ The function `sum` sums all the numbers on the `stack`. Hence, it takes O(n) tim
     - Add a commment to each function implementation that describes:
         1. Conceptually, how the sort algorithm works. You _may_ wish to write this _first_, then try and implement your conceptual understanding
         2. The time and space complexity in Big O notation. Why does the function have that complexity?
-4. Run `npx jasmine` to test your code. 
+4. Run `npm run test` to test your code.
 5. Add timing results for each of your sorting algorithms into the file [sortResults.md](docs/sortResults.md). Which ran fastest? And slowest? Given your understanding of Big O complexity of the different sorting algorithms, described in Step 3., above, were those results what you expected? Add that summary to the file, too.
