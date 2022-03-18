@@ -21,13 +21,13 @@ Figure 1, below, shows some commonly used Big O classifications:
 
 ![Time Complexity Curves](./assets/bigO.png)
 
-_Figure 1: Big O, where O(1) is the most efficient, and O(2^n) the least_ 
+_Figure 1: Big O, where O(1) is the most efficient, and O(2<sup>n</sup>) the least_
 
 - O(1) - the growth is constant, no matter the input. 
 - O(log n) - logarithmic growth
 - O(n) - linear growth
-- O(n^2) - quadratic growth
-- O(2^n) - exponential growth
+- O(n<sup>2</sup>) - quadratic growth
+- O(2<sup>n</sup>) - exponential growth
 
 ## Space Complexity
 
@@ -44,7 +44,7 @@ const tripler = (a, b, c) => {
 
 No matter what numbers are given to `tripler`, it will _always_ use the same amount of space because [javascript numbers are always 64-bit floating point](https://www.w3schools.com/js/js_numbers.asp). Hence, `tripler` has space complexity of O(1).
 
-- O(log n), O(n), O(n^2) O(2^n) - these indicate that the algorithm needs additional space based on the length of the input. For example:
+- O(log n), O(n), O(n<sup>2</sup>) O(2<sup>n</sup>) - these indicate that the algorithm needs additional space based on the length of the input. For example:
 
 ```js
 const copier = (q) {
@@ -73,7 +73,7 @@ const logger = (input) => {
 
 The function `logger` will always run a single `console.log`, no mater what the input. Hence, it has _time_ complexity of O(1).
 
-- O(log n), O(n), O(n^2) O(2^n) - these indicate that the algorithm needs additional time based on the length of the input. For example:
+- O(log n), O(n), O(n<sup>2</sup>) O(2<sup>n</sup>) - these indicate that the algorithm needs additional time based on the length of the input. For example:
 
 ```js
 const sum = (stack) => {
@@ -101,7 +101,7 @@ const orderedPairs(list)
 }
 ```
 
-The function `orderedPairs` runs in O(n^2) time (quadratic time), because the array has _n_ items, so the outer loop runs _n_ times and the inner loop runs _n_ times for each iteration of the outer loop, giving us n^2 total runs of `console.log`.
+The function `orderedPairs` runs in O(n<sup>2</sup>) time (quadratic time), because the array has _n_ items, so the outer loop runs _n_ times and the inner loop runs _n_ times for each iteration of the outer loop, giving us n<sup>2</sup> total runs of `console.log`.
 
 ```js
 const fibonacci = (num) => {
@@ -110,7 +110,7 @@ const fibonacci = (num) => {
 }
 ```
 
-The [recursive](https://www.cs.utah.edu/~germain/PPS/Topics/recursion.html) function `fibonacci` has a time complexity of O(2^n) because it's run time doubles as the input grows by 1.
+The [recursive](https://www.cs.utah.edu/~germain/PPS/Topics/recursion.html) function `fibonacci` has a time complexity of O(2<sup>n</sup>) because it's run time doubles as the input grows by 1.
 
 ## Calculating Big O
 
@@ -165,7 +165,7 @@ const logThenSumPairs = (list) => {
 }
 ```
 
-The time complexity is not O(n + n^2). Here, we drop the least significant term, _n_. Hence, we have O(n^2).
+The time complexity is not O(n + n<sup>2</sup>). Here, we drop the least significant term, _n_. Hence, we have O(n<sup>2</sup>).
 
 ```js
 const isIn = (list, item) => {
@@ -176,9 +176,9 @@ const isIn = (list, item) => {
 }
 ```
 
-If `isIn` is lucky, the _item_ is **always** the first element of the _list_, so it would have O(1) time complexity. However, if it is unlucky, the _item_ will be in the last position, so it would have O(n) complexity. When generalising, it is this _worse case_ you should consider - hence, the time complexity of `isIn` is O(n).
+If `isIn` is lucky, the _item_ is **always** the first element of the _list_, so it would have O(1) time complexity. However, if it is unlucky, the _item_ will be in the last position, so it would have O(n) complexity. When generalising, it is this _worst case_ you should consider - hence, the time complexity of `isIn` is O(n).
 
-However, it is valid to _be specific_, too, and say that `isIn` has _worse case_ complexity of O(n), and _best case_ O(1), and thus infer some _average case_. Indeed, for some algorithms we can also make rigorous statements about their _average case_ runtime. We will consider some of those later in the course.
+However, it is valid to _be specific_, too, and say that `isIn` has _worst case_ complexity of O(n), and _best case_ O(1), and thus infer some _average case_. Indeed, for some algorithms we can also make rigorous statements about their _average case_ runtime. We will consider some of those later in the course.
 
 ## Exercise
 
