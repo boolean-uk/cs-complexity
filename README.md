@@ -6,6 +6,7 @@
 
 - Understand how to use Big O to describe both the time and space complexity of an algorithm
 - Understand how Big O notation describes how an algorithm scales, e.g. if an algorithm works with an input that has one hundred pieces of data, how will it perform with an input that has one million pieces of data?
+- Understand how to calculate Big O notation
 - Implement different _sort_ algorithms
 - Use Big O notation to describe the time and space complexity of different sort algorithms
 
@@ -174,9 +175,9 @@ const isIn = (list, item) => {
 }
 ```
 
-If you're lucky, the _item_ is **always** the first element of the _list_, so you'd have O(1). However, if you're unlucky, the _item_ will be in the last position, so you'd have O(n). When generalising, it is this _worse case_ you should consider - hence, the time complexity of this function is O(n).
+If `isIn` is lucky, the _item_ is **always** the first element of the _list_, so it would have O(1) time complexity. However, if it is unlucky, the _item_ will be in the last position, so it would have O(n) complexity. When generalising, it is this _worse case_ you should consider - hence, the time complexity of `isIn` is O(n).
 
-However, you could say this algorithm has worse case O(n) and best case O(1) and infer an average. Indeed, for some algorithms we can also make rigorous statements about the "average case" runtime. We will consider those later in the course.
+However, is is valid to _be specific_, too, and say that `isIn` has _worse case_ complexity of O(n), and _best case_ O(1), and thus infer some _average case_. Indeed, for some algorithms we can also make rigorous statements about their _average case_ runtime. We will consider some of those later in the course.
 
 ## Exercise
 
