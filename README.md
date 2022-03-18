@@ -177,7 +177,7 @@ const isIn = (list, item) => {
 
 If `isIn` is lucky, the _item_ is **always** the first element of the _list_, so it would have O(1) time complexity. However, if it is unlucky, the _item_ will be in the last position, so it would have O(n) complexity. When generalising, it is this _worse case_ you should consider - hence, the time complexity of `isIn` is O(n).
 
-However, is is valid to _be specific_, too, and say that `isIn` has _worse case_ complexity of O(n), and _best case_ O(1), and thus infer some _average case_. Indeed, for some algorithms we can also make rigorous statements about their _average case_ runtime. We will consider some of those later in the course.
+However, it is valid to _be specific_, too, and say that `isIn` has _worse case_ complexity of O(n), and _best case_ O(1), and thus infer some _average case_. Indeed, for some algorithms we can also make rigorous statements about their _average case_ runtime. We will consider some of those later in the course.
 
 ## Exercise
 
