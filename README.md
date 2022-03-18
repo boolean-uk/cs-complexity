@@ -21,7 +21,7 @@ Figure 1, below, shows some commonly used Big O classifications:
 
 _Figure 1: Big O, where O(1) is the most efficient, and O(2^n) the least_ 
 
-- O(1) - the growth is constant, no matter the input
+- O(1) - the growth is constant, no matter the input. 
 - O(log n) - logarithmic growth
 - O(n) - linear growth
 - O(n^2) - quadratic growth
@@ -85,6 +85,98 @@ const sum = (stack) => {
 ```
 
 The function `sum` sums all the numbers on the `stack`. Hence, it takes O(n) time as you process _n_ additional stacked nodes (where _n_ describes the length of the `stack`, which can vary).
+
+```js
+const orderedPairs(list)
+{
+    for (let i = 0; i < list.size; i++)
+    {
+        for (let j = 0; j < list.size; j++)
+        {
+            console.log("pair", list[i], list[j]);
+        }
+     }
+}
+```
+
+The function `orderedPairs` runs in O(n^2) time (quadratic time), because the array has _n_ items, so the outer loop runs _n_ times and the inner loop runs _n_ times for each iteration of the outer loop, giving us n^2 total runs of `console.log`.
+
+```js
+const fibonacci = (num) => {
+  if (num <= 1) return num;
+  return fibonacci(num - 2) + fibonacci(num - 1);
+}
+```
+
+The [recursive](https://www.cs.utah.edu/~germain/PPS/Topics/recursion.html) function `fibonacci` has a time complexity of O(2^n) because it's run time doubles as the input grows by 1.
+
+## Calculating Big O
+
+When calculating complexity, throw away the constants and the least significant terms. Additionally, when summarising algorithms, only consider the _worst case_ scenario.
+
+Consider this:
+
+```js
+const loopLogger = (input) => {
+    const mySize = 100;
+    for (let i = 0; i < mySize; i++) {
+        console.log(i)
+    }
+
+    for (let i = mySize - 1; i >= 0; i--) {
+        console.log(i)
+    }
+}
+```
+
+`loopLogger` is O(2n), which is just O(n) because the graph of `2n` is still a straight line (so we have linear growth).
+
+```js
+const anotherLogger = (list)
+{
+    console.log("First element", list[0]);
+
+    for (int i = 1; i < list.size / 2; i++) {
+        console.log("First half", list[i]);
+    }
+
+    for (int i = 100; i > 0; i--) {
+        console.log("Countdown", i;
+    }
+}
+```
+
+Here, the time complexity is just O(n) (linear), not O(1 + n/2 + 100), because again, if you were to graph `1 + n/2 + 100`, you'd get a straight line. Hence, the growth is linear.
+
+```js
+const logThenSumPairs = (list) => {
+
+    for (let i = 0; i < list.size; i++) {
+        console.log(i)
+    }
+
+    for (let i = 0; i < list.size; i++) {
+        for (let j = 0; j < list.size; j++) {
+            console.log("sum", list[i] + list[j]);
+        }
+     }
+}
+```
+
+The time complexity is not O(n + n^2). Here, we drop the least significant term, _n_. Hence, we have O(n^2).
+
+```js
+const isIn = (list, item) => {
+    for (let i = 0; i < list.size; i++) {
+        if (list[i] === item) return true;
+    }
+    return false;
+}
+```
+
+If you're lucky, the _item_ is **always** the first element of the _list_, so you'd have O(1). However, if you're unlucky, the _item_ will be in the last position, so you'd have O(n). When generalising, it is this _worse case_ you should consider - hence, the time complexity of this function is O(n).
+
+However, you could say this algorithm has worse case O(n) and best case O(1) and infer an average. Indeed, for some algorithms we can also make rigorous statements about the "average case" runtime. We will consider those later in the course.
 
 ## Exercise
 
