@@ -110,7 +110,7 @@ const fibonacci = (num) => {
 }
 ```
 
-The [recursive](https://www.cs.utah.edu/~germain/PPS/Topics/recursion.html) function `fibonacci` has a time complexity of O(2<sup>n</sup>) because it's run time doubles as the input grows by 1.
+The [recursive](https://www.cs.utah.edu/~germain/PPS/Topics/recursion.html) function `fibonacci` has a time complexity of O(2<sup>n</sup>) (exponential time) because it's run time doubles as the input grows by 1.
 
 ## Calculating Big O
 
@@ -148,7 +148,7 @@ const anotherLogger = (list)
 }
 ```
 
-Here, the time complexity is just O(n) (linear), not O(1 + n/2 + 100), because again, if you were to graph `1 + n/2 + 100`, you'd get a straight line. Hence, the growth is linear.
+`anotherLogger` has time complexity that is just O(n) (linear), not O(1 + n/2 + 100), because again, if you were to graph `1 + n/2 + 100`, you'd get a straight line.
 
 ```js
 const logThenSumPairs = (list) => {
@@ -165,7 +165,7 @@ const logThenSumPairs = (list) => {
 }
 ```
 
-The time complexity is not O(n + n<sup>2</sup>). Here, we drop the least significant term, _n_. Hence, we have O(n<sup>2</sup>).
+The time complexity of `logThenSumPairs` is not O(n + n<sup>2</sup>), because we drop the least significant term, _n_. Hence, we have O(n<sup>2</sup>).
 
 ```js
 const isIn = (list, item) => {
