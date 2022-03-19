@@ -15,16 +15,9 @@ describe('bubbleSort', function() {
     })
 })
 
-describe('bucketSort', function() {
+describe('selectionSort', function() {
     it('correctly sorts', function() {
-        const sorted = bucketSort(unsortedData);
-        expect(sorted).toEqual(sortedData);
-    })
-})
-
-describe('countingSort', function() {
-    it('correctly sorts', function() {
-        const sorted = countingSort(unsortedData);
+        const sorted = selectionSort(unsortedData);
         expect(sorted).toEqual(sortedData);
     })
 })
@@ -32,6 +25,13 @@ describe('countingSort', function() {
 describe('insertionSort', function() {
     it('correctly sorts', function() {
         const sorted = insertionSort(unsortedData);
+        expect(sorted).toEqual(sortedData);
+    })
+})
+
+describe('countingSort', function() {
+    it('correctly sorts', function() {
+        const sorted = countingSort(unsortedData);
         expect(sorted).toEqual(sortedData);
     })
 })
@@ -50,9 +50,9 @@ describe('quickSort', function() {
     })
 })
 
-describe('selectionSort', function() {
+describe('bucketSort', function() {
     it('correctly sorts', function() {
-        const sorted = selectionSort(unsortedData);
+        const sorted = bucketSort(unsortedData);
         expect(sorted).toEqual(sortedData);
     })
 })
