@@ -119,8 +119,7 @@ When calculating complexity, throw away the constants and the least significant 
 Consider this:
 
 ```js
-const loopLogger = (input) => {
-    const mySize = 100;
+const loopLogger = (mySize) => {
     for (let i = 0; i < mySize; i++) {
         console.log(i)
     }
